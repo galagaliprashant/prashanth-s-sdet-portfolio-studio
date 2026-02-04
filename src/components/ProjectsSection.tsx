@@ -12,6 +12,7 @@ interface Project {
   liveUrl?: string;
   tryUrl?: string;
   caseStudyUrl?: string;
+  isLive?: boolean;
   image: string;
 }
 
@@ -23,6 +24,7 @@ const projects: Project[] = [
     githubUrl: "https://github.com",
     tryUrl: "https://github.com",
     caseStudyUrl: "/case-study/headless-crud-validator",
+    isLive: true,
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
   },
   {
@@ -167,7 +169,16 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 relative">
+                  {/* Live Badge */}
+                  {project.isLive && (
+                    <div className="absolute top-4 right-4">
+                      <span className="inline-flex items-center px-2.5 py-1 text-xs font-semibold bg-red-500 text-white rounded-md shadow-sm">
+                        Live
+                      </span>
+                    </div>
+                  )}
+
                   <div className="flex items-center gap-2 mb-3">
                     <Folder className="w-5 h-5 text-primary" />
                     <h3 className="font-display font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
