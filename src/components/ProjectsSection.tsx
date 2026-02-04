@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Folder } from "lucide-react";
+import { ExternalLink, Github, Folder, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Section3DDecor from "./Section3DDecor";
 
 interface Project {
@@ -9,6 +10,8 @@ interface Project {
   techStack: string[];
   githubUrl: string;
   liveUrl?: string;
+  tryUrl?: string;
+  caseStudyUrl?: string;
   image: string;
 }
 
@@ -18,6 +21,8 @@ const projects: Project[] = [
     description: "Lightweight Python CRUD Bot that validates Booking Engine core logic without UI. Features stateful execution with dynamic authentication, deep JSON schema validation, and self-cleaning teardown. Reduced test execution from 45s to 1.2s.",
     techStack: ["Python", "requests", "JSON", "REST API", "CI/CD"],
     githubUrl: "https://github.com",
+    tryUrl: "https://github.com",
+    caseStudyUrl: "/case-study/headless-crud-validator",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
   },
   {
@@ -67,7 +72,7 @@ const ProjectsSection = () => {
     <section id="projects" className="section-padding bg-background relative overflow-hidden">
       {/* 3D Decoration */}
       <Section3DDecor position="right" color="#06b6d4" />
-      
+
       <div className="container-custom relative z-10">
         <motion.div
           ref={ref}
@@ -111,7 +116,7 @@ const ProjectsSection = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                whileHover={{ 
+                whileHover={{
                   y: -8,
                   boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.15)"
                 }}
@@ -127,9 +132,9 @@ const ProjectsSection = () => {
                     transition={{ duration: 0.5 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
-                  
+
                   {/* Overlay Links */}
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileHover={{ opacity: 1, y: 0 }}
                     className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300"
@@ -169,13 +174,13 @@ const ProjectsSection = () => {
                       {project.title}
                     </h3>
                   </div>
-                  
+
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                     {project.description}
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.techStack.slice(0, 4).map((tech) => (
                       <motion.span
                         key={tech}
@@ -191,6 +196,35 @@ const ProjectsSection = () => {
                       </span>
                     )}
                   </div>
+
+                  {/* Action Links */}
+                  {(project.tryUrl || project.caseStudyUrl) && (
+                    <div className="flex items-center gap-4 pt-2 border-t border-border/50">
+                      {project.tryUrl && (
+                        <motion.a
+                          href={project.tryUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ x: 2 }}
+                          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                        >
+                          Try it
+                          <ExternalLink size={14} />
+                        </motion.a>
+                      )}
+                      {project.caseStudyUrl && (
+                        <Link to={project.caseStudyUrl}>
+                          <motion.div
+                            whileHover={{ x: 2 }}
+                            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                          >
+                            Read case study
+                            <ArrowRight size={14} />
+                          </motion.div>
+                        </Link>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.article>
             ))}
