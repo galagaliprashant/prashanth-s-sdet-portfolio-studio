@@ -14,6 +14,13 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Headless CRUD Validator for Microservices",
+    description: "Lightweight Python CRUD Bot that validates Booking Engine core logic without UI. Features stateful execution with dynamic authentication, deep JSON schema validation, and self-cleaning teardown. Reduced test execution from 45s to 1.2s.",
+    techStack: ["Python", "requests", "JSON", "REST API", "CI/CD"],
+    githubUrl: "https://github.com",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
+  },
+  {
     title: "API Test Framework",
     description: "A comprehensive REST API testing framework built with RestAssured and TestNG. Features data-driven testing, parallel execution, and detailed Allure reporting.",
     techStack: ["Java", "RestAssured", "TestNG", "Allure", "Maven"],
