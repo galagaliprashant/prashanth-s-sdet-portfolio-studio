@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github, Folder } from "lucide-react";
+import Section3DDecor from "./Section3DDecor";
 
 interface Project {
   title: string;
@@ -56,8 +57,11 @@ const ProjectsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="section-padding bg-background">
-      <div className="container-custom">
+    <section id="projects" className="section-padding bg-background relative overflow-hidden">
+      {/* 3D Decoration */}
+      <Section3DDecor position="right" color="#06b6d4" />
+      
+      <div className="container-custom relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -100,40 +104,54 @@ const ProjectsSection = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                className="group relative bg-card rounded-2xl border border-border overflow-hidden hover-lift"
+                whileHover={{ 
+                  y: -8,
+                  boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.15)"
+                }}
+                className="group relative bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <motion.img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                   
                   {/* Overlay Links */}
-                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileHover={{ opacity: 1, y: 0 }}
+                    className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  >
+                    <motion.a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
                       className="p-2 bg-background/90 backdrop-blur-sm rounded-lg text-foreground hover:text-primary transition-colors"
                       aria-label="View on GitHub"
                     >
                       <Github size={18} />
-                    </a>
+                    </motion.a>
                     {project.liveUrl && (
-                      <a
+                      <motion.a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
                         className="p-2 bg-background/90 backdrop-blur-sm rounded-lg text-foreground hover:text-primary transition-colors"
                         aria-label="View live demo"
                       >
                         <ExternalLink size={18} />
-                      </a>
+                      </motion.a>
                     )}
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Content */}
@@ -152,12 +170,13 @@ const ProjectsSection = () => {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.slice(0, 4).map((tech) => (
-                      <span
+                      <motion.span
                         key={tech}
+                        whileHover={{ scale: 1.05 }}
                         className="px-2 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-md"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                     {project.techStack.length > 4 && (
                       <span className="px-2 py-1 text-xs font-medium bg-secondary text-muted-foreground rounded-md">
