@@ -116,7 +116,7 @@ const HeroSection = () => {
             {[
               { icon: Github, href: "https://github.com", label: "GitHub" },
               { icon: Linkedin, href: "https://www.linkedin.com/in/prasshanth-galagali/", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:hello@example.com", label: "Email" },
+              { icon: Mail, href: "mailto:galagaliprashanth@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
