@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2 } from "lucide-react";
+import Section3DDecor from "./Section3DDecor";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -15,8 +16,11 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-background">
-      <div className="container-custom">
+    <section id="about" className="section-padding bg-background relative overflow-hidden">
+      {/* 3D Decoration */}
+      <Section3DDecor position="right" color="#14b8a6" />
+      
+      <div className="container-custom relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -78,7 +82,8 @@ const AboutSection = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-all cursor-default border border-transparent hover:border-primary/20"
                 >
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                   <span className="text-foreground font-medium">{highlight}</span>

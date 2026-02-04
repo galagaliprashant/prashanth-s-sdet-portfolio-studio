@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Section3DDecor from "./Section3DDecor";
 
 interface Skill {
   name: string;
@@ -36,8 +37,11 @@ const SkillsSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="section-padding bg-secondary/30">
-      <div className="container-custom">
+    <section id="skills" className="section-padding bg-secondary/30 relative overflow-hidden">
+      {/* 3D Decoration */}
+      <Section3DDecor position="left" color="#0891b2" />
+      
+      <div className="container-custom relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}
@@ -81,12 +85,13 @@ const SkillsSection = () => {
             className="flex flex-wrap justify-center gap-2 mb-10"
           >
             {categories.map((category) => (
-              <span
+              <motion.span
                 key={category}
+                whileHover={{ scale: 1.05 }}
                 className="px-4 py-2 text-sm font-medium bg-card text-foreground rounded-full border border-border hover:border-primary hover:text-primary transition-colors cursor-default"
               >
                 {category}
-              </span>
+              </motion.span>
             ))}
           </motion.div>
 
@@ -98,23 +103,37 @@ const SkillsSection = () => {
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ delay: 0.1 + index * 0.05, duration: 0.4 }}
-                className="group relative p-5 bg-card rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                whileHover={{ 
+                  scale: 1.03, 
+                  y: -5,
+                  boxShadow: "0 20px 40px -15px rgba(20, 184, 166, 0.2)"
+                }}
+                className="group relative p-5 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300"
               >
+                {/* Glow effect on hover */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                
                 {/* Category Badge */}
-                <span className="absolute top-3 right-3 px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full">
+                <span className="relative z-10 absolute top-3 right-3 px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary rounded-full">
                   {skill.category}
                 </span>
 
                 {/* Icon & Name */}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">{skill.icon}</span>
+                <div className="relative z-10 flex items-center gap-3 mb-4">
+                  <motion.span 
+                    className="text-2xl"
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                  >
+                    {skill.icon}
+                  </motion.span>
                   <h3 className="font-display font-semibold text-foreground group-hover:text-primary transition-colors">
                     {skill.name}
                   </h3>
                 </div>
 
                 {/* Progress Bar */}
-                <div className="space-y-2">
+                <div className="relative z-10 space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Proficiency</span>
                     <span className="font-medium text-foreground">{skill.level}%</span>
