@@ -1,73 +1,161 @@
-# Welcome to your Lovable project
+# Prashanth Galagali - SDET Portfolio
 
-## Project info
+A modern, interactive portfolio showcasing my expertise in Software Development Engineering in Test (SDET), automation frameworks, and quality engineering.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://your-portfolio-url.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/galagaliprashant/prashanth-s-sdet-portfolio-studio)
 
-## How can I edit this code?
+## 🚀 About
 
-There are several ways of editing your application.
+This portfolio highlights my professional journey as an SDET and Automation Engineer, featuring:
 
-**Use Lovable**
+- **Featured Projects**: Comprehensive automation frameworks and testing solutions
+- **Case Studies**: In-depth technical write-ups of key projects
+- **Skills & Expertise**: API, Web, Mobile automation, and continuous testing
+- **Contact Information**: Easy ways to connect and collaborate
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## ✨ Featured Projects
 
-Changes made via Lovable will be committed automatically to this repo.
+### 🔥 Headless CRUD Validator for Microservices
+**Performance Improvement: 97% (45s → 1.2s)**
 
-**Use your preferred IDE**
+A lightweight Python CRUD Bot that validates Booking Engine core logic without UI dependencies. This project demonstrates:
+- Stateful execution with dynamic authentication
+- Deep JSON schema validation
+- Self-cleaning teardown mechanisms
+- CI/CD pipeline integration
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+[📖 Read the full case study](/case-study/headless-crud-validator)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Other Projects
+- **API Test Framework**: RestAssured + TestNG with Allure reporting
+- **E2E Web Automation Suite**: Selenium + Cucumber + Jenkins
+- **Cypress Test Dashboard**: Real-time test analytics and reporting
+- **Mobile Test Automation**: Cross-platform Appium testing
+- **Performance Testing Toolkit**: JMeter + Grafana integration
 
-Follow these steps:
+## 🛠️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Frontend
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Routing**: React Router v6
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Testing & Automation
+- **Languages**: Python, Java, JavaScript/TypeScript
+- **API Testing**: RestAssured, requests, Postman
+- **Web Automation**: Selenium, Cypress, Playwright
+- **Mobile Testing**: Appium, XCUITest, Espresso
+- **Performance**: JMeter, Grafana, InfluxDB
+- **CI/CD**: Jenkins, GitHub Actions, Docker
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🏃‍♂️ Getting Started
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/galagaliprashant/prashanth-s-sdet-portfolio-studio.git
+   cd prashanth-s-sdet-portfolio-studio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:8080/`
+
+### Build for Production
+
+```bash
+npm run build
 ```
 
-**Edit a file directly in GitHub**
+The optimized production build will be in the `dist/` directory.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Project Structure
 
-**Use GitHub Codespaces**
+```
+prashanth-s-sdet-portfolio-studio/
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/             # shadcn/ui components
+│   │   ├── HeroSection.tsx
+│   │   ├── ProjectsSection.tsx
+│   │   ├── SkillsSection.tsx
+│   │   └── ...
+│   ├── pages/              # Route pages
+│   │   ├── Index.tsx
+│   │   ├── HeadlessCrudValidatorCaseStudy.tsx
+│   │   └── NotFound.tsx
+│   ├── assets/             # Images and static files
+│   ├── lib/                # Utility functions
+│   ├── App.tsx             # Main app component
+│   └── main.tsx            # Entry point
+├── public/                 # Public assets
+├── index.html
+├── package.json
+├── tailwind.config.ts
+├── tsconfig.json
+└── vite.config.ts
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Features
 
-## What technologies are used for this project?
+- **Responsive Design**: Fully responsive across all devices
+- **Dark Mode**: Modern dark theme with custom color palette
+- **Smooth Animations**: Framer Motion for engaging interactions
+- **3D Background**: Three.js integration for visual appeal
+- **SEO Optimized**: Proper meta tags and semantic HTML
+- **Fast Performance**: Optimized with Vite for lightning-fast builds
+- **Type Safe**: Full TypeScript support
 
-This project is built with:
+## 🔗 Key Routes
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `/` - Home page with all sections
+- `/case-study/headless-crud-validator` - Detailed case study
 
-## How can I deploy this project?
+## 📧 Contact
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- **Email**: [galagaliprashanth@gmail.com](mailto:galagaliprashanth@gmail.com)
+- **LinkedIn**: [linkedin.com/in/prasshanth-galagali](https://www.linkedin.com/in/prasshanth-galagali/)
+- **GitHub**: [github.com/galagaliprashant](https://github.com/galagaliprashant)
 
-## Can I connect a custom domain to my Lovable project?
+## 🤝 Contributing
 
-Yes, you can!
+This is a personal portfolio project, but feedback and suggestions are always welcome! Feel free to:
+1. Open an issue for bugs or suggestions
+2. Fork the repository for your own portfolio
+3. Submit a pull request with improvements
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Built with [Vite](https://vitejs.dev/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
+- Icons from [Lucide](https://lucide.dev/)
+- Animations powered by [Framer Motion](https://www.framer.com/motion/)
+- 3D graphics with [Three.js](https://threejs.org/)
+
+---
+
+**Made with ❤️ by Prashanth Galagali**
+
+*SDET | Automation Engineer | Quality Enthusiast*
